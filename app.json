@@ -20,6 +20,8 @@
       "supportsTablet": true
     },
     "android": {
+      "package": "com.sharif.buysell",
+      "versionCode": 1,
       "adaptiveIcon": {
         "foregroundImage": "./app/assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
@@ -27,6 +29,7 @@
     },
     "web": {
       "favicon": "./app/assets/favicon.png"
-    }
+    },
+    "description": "A buy sell project"
   }
 }
