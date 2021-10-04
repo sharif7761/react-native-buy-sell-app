@@ -16,8 +16,8 @@ const WelcomeScreen = () => {
                 <Text style={styles.tagline}>Sell What You Don't Need</Text>
             </View>
             <View style={styles.buttonContainer}>
-                <AppButton title="Login"  onPress={() => alert('hi')} />
-                <AppButton title="Register" color="secondary" onPress={() => alert('hi')} />
+                <AppButton title="Login"  onPress={() => alert('Login')} />
+                <AppButton title="Register" color="secondary" onPress={() => alert('Register')} />
             </View>
 
         </ImageBackground>
