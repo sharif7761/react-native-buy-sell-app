@@ -5,33 +5,36 @@ import Icon from "../components/Icon";
 import {View, StyleSheet, FlatList} from "react-native";
 import colors from "../config/colors";
 import ListItemSeparator from "../components/ListItemSeparator";
+import useAuth from "../auth/useAuth";
 
 const menuItems = [
-    {
-        title: "My Listings",
-        icon: {
-            name: "format-list-bulleted",
-            backgroundColor: colors.primary
-        }
-    },
+    // {
+    //     title: "My Listings",
+    //     icon: {
+    //         name: "format-list-bulleted",
+    //         backgroundColor: colors.primary
+    //     }
+    // },
     {
         title: "My Messages",
         icon: {
             name: "email",
             backgroundColor: colors.secondary
-        }
+        },
+        targetScreen: "Messages"
     },
 ]
 
-const AccountScreen = () => {
+const AccountScreen = ({ navigation }) => {
+    const { user, logout } = useAuth();
+
     return (
         <Screen style={styles.screen}>
             <View style={styles.container}>
                 <ListItem
-                    title="Sharif Ahmed"
-                    subTitle="sharif@namespaceit.com"
+                    title={user.name}
+                    subTitle={user.email}
                     image={require('../assets/mosh.jpg')}
-                    onPress={() => alert('message selected', item) }
                 />
             </View>
             <View style={styles.container}>
@@ -48,6 +51,7 @@ const AccountScreen = () => {
                                     backgroundColor={item.icon.backgroundColor}
                                 />
                             }
+                            onPress={() => navigation.navigate(item.targetScreen)}
                         />
                     }
                 />
@@ -60,6 +64,7 @@ const AccountScreen = () => {
                         backgroundColor="#ffe66d"
                     />
                 }
+                onPress={() => logout()}
             />
         </Screen>
     );
