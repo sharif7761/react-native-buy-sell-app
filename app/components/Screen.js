@@ -1,11 +1,13 @@
 import React from 'react';
 import Constants from "expo-constants";
-import {FlatList, SafeAreaView, StyleSheet, StatusBar, Platform} from "react-native";
+import {FlatList, View, SafeAreaView, StyleSheet, StatusBar, Platform} from "react-native";
 
-const Screen = ({children}) => {
+const Screen = ({children, style}) => {
     return (
-        <SafeAreaView style={styles.screen}>
-            {children}
+        <SafeAreaView style={[styles.screen, style]}>
+            <View style={[styles.view, style]}>
+                {children}
+            </View>
         </SafeAreaView>
     );
 };
@@ -13,7 +15,11 @@ const Screen = ({children}) => {
 const styles = StyleSheet.create({
     screen: {
         //  paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0
-        paddingTop: Constants.statusBarHeight
+        paddingTop: Constants.statusBarHeight,
+        flex: 1
+    },
+    view: {
+        flex: 1
     }
 });
 
